@@ -2171,6 +2171,193 @@ footer{
 #dz-pdf header b{font-size:.98rem;color:#122042}
 #dz-pdf iframe{flex:1;border:0;width:100%}
 #learn-glossary-view .gl-back{margin-bottom:1rem}
+
+/* =====================================================================
+   MOBILE / HP POLISH  (v4)  — hanya aktif di layar ≤ 760px.
+   Tampilan laptop/desktop tidak berubah sama sekali.
+   ===================================================================== */
+.lbl-short{display:none}
+@media (max-width:760px){
+  :root{--nav-h:64px;--safe-b:env(safe-area-inset-bottom,0px)}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{padding-bottom:calc(var(--nav-h) + var(--safe-b) + 6px);-webkit-tap-highlight-color:transparent}
+  button,a,.tab-btn,.pill,.mkt-filter-btn{touch-action:manipulation}
+  input,select,textarea{font-size:16px!important}   /* cegah auto-zoom iOS */
+
+  /* ---------- HEADER: 1 baris ringkas ---------- */
+  .topbar{
+    backdrop-filter:none;-webkit-backdrop-filter:none;   /* wajib: agar bar bawah (fixed) menempel ke layar */
+    background:rgba(10,18,38,.97);
+    padding:.5rem 1rem;padding-top:calc(.5rem + env(safe-area-inset-top,0px));
+  }
+  .topbar-inner{flex-direction:row!important;align-items:center!important;justify-content:space-between;flex-wrap:nowrap;gap:.5rem}
+  .logo{font-size:1.06rem;gap:.45rem;flex-shrink:0}
+  .logo span.sub{display:none}
+  .header-auth-wrap{gap:.4rem;min-width:0;flex-shrink:1}
+  .btn-auth-ghost,.btn-auth-cta{min-height:38px;padding:.45rem .85rem;font-size:.8rem}
+  .hide-m{display:none}
+  .btn-logout-sm{min-height:36px;padding:.35rem .7rem}
+  .user-pill{padding:.22rem .7rem .22rem .26rem;gap:.45rem;min-height:38px;max-width:164px}
+  .user-meta{min-width:0}
+  .user-meta strong{max-width:76px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block}
+  .user-meta span{font-size:.6rem}
+
+  /* ---------- NAVIGASI: bar tab di bawah (ibu jari) ---------- */
+  .nav-tabs{
+    position:fixed;left:0;right:0;bottom:0;top:auto;z-index:70;
+    width:100%;max-width:none;margin:0;
+    display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.1rem;
+    padding:.3rem .3rem calc(.3rem + var(--safe-b));
+    background:rgba(7,13,27,.975);
+    border:0;border-top:1px solid var(--garis);border-radius:0;
+    box-shadow:0 -12px 32px rgba(0,0,0,.5);
+    overflow:visible;
+  }
+  .tab-btn{
+    flex-direction:column;justify-content:center;gap:.22rem;
+    padding:.4rem .05rem;min-height:52px;position:relative;
+    font-size:.66rem;line-height:1.1;letter-spacing:0;border-radius:12px;
+  }
+  .tab-btn svg{width:22px;height:22px}
+  .tab-btn.active{background:rgba(107,195,243,.15);color:var(--lime);box-shadow:none}
+  .tab-btn.active svg{stroke:var(--lime)}
+  .lbl-full{display:none}
+  .lbl-short{display:inline}
+  .tab-btn .lock-badge{position:absolute;top:1px;left:calc(50% + 3px);font-size:.5rem;padding:.08rem .22rem;border-radius:5px}
+  .tab-btn .badge-count{position:absolute;top:0;left:calc(50% - 25px);font-size:.58rem;padding:.02rem .3rem}
+
+  /* ---------- Ticker ---------- */
+  .tape{font-size:.72rem}
+  .jalur{gap:1.6rem;padding:.45rem 0}
+
+  /* ---------- Ritme halaman ---------- */
+  .wrap{padding:1.6rem 1rem}
+  .sec-head{margin-bottom:1.1rem;gap:.7rem}
+  h2{font-size:clamp(1.45rem,6.6vw,1.8rem);line-height:1.12}
+  .sub-lead{font-size:.93rem;line-height:1.55}
+  .eyebrow{font-size:.78rem}
+  .btn{min-height:44px}
+  .btn-sm{min-height:40px}
+
+  /* ---------- HERO ---------- */
+  .hero{grid-template-columns:1fr;gap:1.2rem;padding:1.2rem 1rem 2rem}
+  .raksasa{font-size:8.5rem;right:-3vw;top:.2rem;opacity:.65}
+  h1{font-size:clamp(2.05rem,9.6vw,2.7rem);line-height:1.02}
+  .hero .eyebrow{font-size:.74rem;padding:.35rem .8rem .35rem .65rem;line-height:1.3;margin-bottom:.9rem}
+  .hero .sub-lead{margin:.9rem 0 1.2rem!important;font-size:.95rem}
+  .hero-cta{display:grid!important;grid-template-columns:1fr 1fr;gap:.6rem!important;margin-bottom:.4rem!important}
+  .hero-cta .tiket{grid-column:1/-1;justify-content:center;min-height:50px;font-size:.95rem}
+  .hero-cta .btn{min-height:46px!important;padding:0 .6rem!important;font-size:.82rem;justify-content:center;text-align:center;line-height:1.2}
+  .panggung{margin-top:.4rem}
+  .ponsel{transform:rotateY(-6deg) rotateX(2deg)}
+
+  /* ---------- Ringkasan pasar: kartu angka 2 kolom ---------- */
+  #tab-beranda .grid-4{grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin-bottom:1rem!important}
+  #tab-beranda .grid-4>.card:first-child,
+  #tab-beranda .grid-4>.card:last-child{grid-column:1/-1}
+  #tab-beranda .grid-4>.card{padding:.9rem .95rem;border-radius:16px}
+  #tab-beranda .grid-4 .mono[style*="1.75rem"]{font-size:1.4rem!important}
+  #tab-beranda .grid-4>.card:first-child .mono[style*="1.75rem"]{font-size:1.75rem!important}
+  #tab-beranda .grid-4 small{display:block;line-height:1.35}
+  #tab-beranda .grid-4>.card>div:first-child{flex-wrap:wrap;gap:.3rem .5rem}
+  #tab-beranda .grid-4 .badge-tag{white-space:nowrap;font-size:.62rem;padding:.2rem .5rem}
+  #tab-beranda .grid-4>.card:not(:first-child):not(:last-child) strong{font-size:.82rem!important}
+  .card{padding:1.05rem}
+
+  /* ---------- Filter pil: 1 baris geser ---------- */
+  #tab-beranda .pill-group{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:.45rem;margin:0 -1rem;padding:.1rem 1rem .35rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  #tab-beranda .pill-group::-webkit-scrollbar{display:none}
+  .mkt-filter-btn{flex:none;white-space:nowrap;min-height:40px}
+  #tab-beranda .wrap>div[style*="justify-content:space-between"]>span{font-size:.7rem!important;line-height:1.4}
+
+  /* ---------- Tabel saham → daftar ringkas (nama kiri, harga + perubahan kanan) ---------- */
+  .mkt-table-wrap{border-radius:14px;overflow:hidden}
+  .mkt-table,.mkt-table tbody{display:block;min-width:0;width:100%}
+  .mkt-table thead{display:none}
+  .mkt-table tbody tr{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;
+    align-items:center;column-gap:.7rem;row-gap:.1rem;padding:.75rem .9rem;border-bottom:1px solid var(--garis);
+  }
+  .mkt-table tbody tr:last-child{border-bottom:0}
+  .mkt-table td{display:block;padding:0;border:0}
+  .mkt-table td:nth-child(2),.mkt-table td:nth-child(3),.mkt-table td:nth-child(6),.mkt-table td:nth-child(7){display:none}
+  .mkt-table td:first-child{grid-column:1;grid-row:1/3;min-width:0}
+  .mkt-table td:first-child>div{gap:.65rem;min-width:0}
+  .mkt-table td:first-child>div>div{min-width:0}
+  .mkt-table td:first-child small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mkt-table td:nth-child(4){grid-column:2;grid-row:1;text-align:right;font-size:.95rem;white-space:nowrap}
+  .mkt-table td:nth-child(5){grid-column:2;grid-row:2;text-align:right;font-size:.8rem;white-space:nowrap}
+
+  /* ---------- Berita ---------- */
+  .news-featured{grid-template-columns:1fr}
+  .news-thumb-wrap{min-height:0}
+  #home-news-grid .news-thumb-wrap{height:160px!important}
+  #tab-berita .news-card{flex-direction:row;align-items:stretch;border-radius:14px}
+  #tab-berita .news-card .news-thumb-wrap{width:108px;flex:none;height:auto!important;min-height:132px}
+  #tab-berita .news-card .news-media-tag{display:none}
+  #tab-berita .news-card .news-bmk-btn{top:6px;right:6px;width:30px;height:30px}
+  #tab-berita .news-card-body{padding:.8rem .85rem;gap:.35rem;min-width:0}
+  #tab-berita .news-card-body h3{font-size:.95rem!important;line-height:1.3!important;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  #tab-berita .news-card-body p{display:none}
+  #tab-berita .news-card-body>div{padding-top:.4rem!important;flex-wrap:wrap;gap:.2rem .6rem;font-size:.72rem!important}
+
+  #tab-berita .search-input{width:100%;max-width:none;min-height:46px}
+  #tab-berita .search-input:focus{outline:2px solid var(--lime);outline-offset:1px}
+  #tab-berita .pill-group{flex-wrap:nowrap;overflow-x:auto;margin:0 -1rem;padding:.1rem 1rem .35rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  #tab-berita .pill-group::-webkit-scrollbar{display:none}
+  #tab-berita .pill{flex:none;white-space:nowrap;min-height:40px}
+  .news-featured .news-thumb-wrap{min-height:190px;height:190px}
+  .news-featured>div:last-child{padding:1.1rem!important}
+  .news-featured h3{font-size:1.28rem!important;line-height:1.22!important;padding-right:2.4rem}
+  .news-featured p{color:#3e4959!important;font-size:.9rem!important}
+  .news-featured>div:last-child>div:last-child{flex-wrap:wrap;gap:.3rem .8rem}
+  .news-featured .news-bmk-btn{top:.8rem;right:.8rem}
+
+  /* ---------- Simulasi ---------- */
+  #tab-simulasi .sec-head>div[style*="display:flex"]{display:grid!important;grid-template-columns:1fr 1fr;gap:.5rem!important;width:100%}
+  #tab-simulasi .sec-head .btn{padding:.5rem .6rem;font-size:.78rem;justify-content:center;text-align:center;line-height:1.2}
+  #tab-simulasi .grid-4{grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+  #tab-simulasi .grid-4>.card{padding:.8rem .85rem!important}
+  #tab-simulasi .grid-4 small{font-size:.64rem!important;line-height:1.25}
+  #tab-simulasi .grid-4 strong{font-size:1.02rem!important;display:block;word-break:break-word;line-height:1.25}
+  .chart-panel,.watchlist-panel{padding:.9rem!important;border-radius:16px}
+  .chart-toolbar-row{flex-wrap:wrap;gap:.5rem}
+  .tf-btn{min-height:36px;min-width:40px}
+  #sim-watchlist-box{max-height:300px!important}
+
+  /* ---------- Games ---------- */
+  #tab-games .duo-top-hud{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:.55rem}
+  #tab-games .duo-top-hud>*{padding:.6rem!important;min-width:0;gap:.5rem!important}
+  #tab-games .duo-top-hud>*>:first-child{width:32px!important;height:32px!important;min-width:32px;font-size:1rem!important;border-radius:10px!important}
+  #tab-games .duo-top-hud :is(strong,b){font-size:.88rem!important;line-height:1.25;white-space:normal}
+  #tab-games .duo-top-hud>*:nth-child(3),#tab-games .duo-top-hud>*:last-child{grid-column:1/-1}
+  #tab-games .duo-top-hud button{flex:none;margin-left:auto;min-height:32px}
+  #tab-games .duo-top-hud small,#tab-games .duo-top-hud span{font-size:.62rem!important}
+
+  /* ---------- Profil & Belajar ---------- */
+  #tab-profil .prof-subnav{display:flex;grid-template-columns:none;overflow-x:auto;gap:.45rem;scrollbar-width:none;margin:0 -1rem;padding:0 1rem .3rem}
+  #tab-profil .prof-subnav::-webkit-scrollbar{display:none}
+  #tab-profil .prof-subnav>*{flex:none;white-space:nowrap}
+  #tab-profil .prof-kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:.6rem}
+  .learn-studio{padding:1.2rem 1rem}
+  .learn-banner{padding:1.1rem;border-radius:16px}
+  .course-card{padding:1.1rem}
+
+  /* ---------- Modal → bottom sheet ---------- */
+  .modal-backdrop{padding:0;place-items:end center}
+  .modal-box,.auth-modal-box{max-width:100%;border-radius:22px 22px 0 0;max-height:92dvh;padding:1.2rem 1.1rem calc(1.2rem + var(--safe-b))}
+
+  /* ---------- Toast di atas bar bawah ---------- */
+  .toast{left:.9rem;right:.9rem;bottom:calc(var(--nav-h) + var(--safe-b) + 12px);text-align:center}
+
+  /* ---------- Footer ---------- */
+  footer{padding:1.4rem 1rem;font-size:.74rem;flex-direction:column;gap:.5rem}
+}
+@media (max-width:380px){
+  .btn-auth-ghost{padding:.45rem .7rem}
+  .btn-auth-cta{padding:.45rem .7rem}
+  .tab-btn{font-size:.62rem}
+}
 </style>
 </head>
 <body>
@@ -2191,7 +2378,7 @@ footer{
       </button>
       <button type="button" class="tab-btn" data-tab="berita" onclick="switchTab('berita')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 5h16v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5Z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
-        <span>Berita &amp; Riset</span>
+        <span class="lbl-full">Berita &amp; Riset</span><span class="lbl-short">Berita</span>
       </button>
       <button type="button" class="tab-btn" data-tab="belajar" onclick="switchTab('belajar')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 6.5A2.5 2.5 0 0 1 4.5 4H12v16H4.5A2.5 2.5 0 0 0 2 22.5v-16Z"/><path d="M22 6.5A2.5 2.5 0 0 0 19.5 4H12v16h7.5a2.5 2.5 0 0 1 2.5 2.5v-16Z"/></svg>
@@ -2205,7 +2392,7 @@ footer{
       </button>
       <button type="button" class="tab-btn" data-tab="games" onclick="switchTab('games')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-        <span>Games &amp; Quiz</span>
+        <span class="lbl-full">Games &amp; Quiz</span><span class="lbl-short">Games</span>
         <span class="lock-badge" id="lock-games">🔒</span>
       </button>
       <button type="button" class="tab-btn" data-tab="profil" onclick="switchTab('profil')">
@@ -2219,14 +2406,14 @@ footer{
     <!-- GUEST ACTIONS vs LOGGED-IN USER PILL -->
     <div class="header-auth-wrap" id="header-guest-actions">
       <button type="button" class="btn-auth-ghost" onclick="openAuthModal('login', 'belajar')">Masuk</button>
-      <button type="button" class="btn-auth-cta" onclick="openAuthModal('register', 'belajar')">Buat Akun Gratis</button>
+      <button type="button" class="btn-auth-cta" onclick="openAuthModal('register', 'belajar')">Buat Akun<span class="hide-m"> Gratis</span></button>
     </div>
 
     <div class="header-auth-wrap" id="header-user-actions" style="display:none">
       <button type="button" class="user-pill" onclick="switchTab('profil')" title="Buka Profil & Sertifikat">
-        <div class="avatar-sm" id="header-avatar">AP</div>
+        <div class="avatar-sm" id="header-avatar">👤</div>
         <div class="user-meta">
-          <strong id="header-username">Andi Pratama</strong>
+          <strong id="header-username">Pengguna</strong>
           <span id="header-level">Lv.1 · 145 EXP</span>
         </div>
       </button>
@@ -2255,16 +2442,16 @@ footer{
         Pelajari analisis fundamental dan teknikal dari level Pemula hingga Mahir, pantau grafik <i>real-time candlestick</i> interaktif, lalu uji strategi Anda dengan modal virtual <b>RDN Rp100.000.000</b> tanpa risiko uang sungguhan.
       </p>
 
-      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-bottom:1.75rem">
+      <div class="hero-cta" style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-bottom:1.75rem">
         <button type="button" class="tiket" onclick="switchTab('belajar')">
           <span>Mulai Belajar Sekarang</span>
           <span>→</span>
         </button>
         <button type="button" class="btn btn-lime" style="min-height:48px;padding:0 1.35rem" onclick="switchTab('simulasi')">
-          📈 Coba Simulasi Trading
+          📈 Coba Simulasi<span class="hide-m"> Trading</span>
         </button>
         <button type="button" class="btn" style="min-height:48px" onclick="switchTab('games')">
-          🏆 Kuis &amp; Games Visual
+          🏆 Kuis &amp; Games<span class="hide-m"> Visual</span>
         </button>
       </div>
     </div>
@@ -2977,7 +3164,7 @@ footer{
       <!-- Left: Avatar Ring + Quick Jump -->
       <div class="prof-avatar-wrap">
         <div class="avatar-lg" id="prof-avatar-ring">
-          <div class="avatar-lg-inner" id="prof-avatar-box">AP</div>
+          <div class="avatar-lg-inner" id="prof-avatar-box">👤</div>
         </div>
         <div id="profile-avatar-preview" style="display:none"></div>
         <button type="button" class="prof-avatar-edit-Floating" onclick="switchProfileSubtab('avatar')">
@@ -2992,7 +3179,7 @@ footer{
           <span class="badge-tag amber" id="profile-level-badge">RDN Virtual Aktif</span>
           <span class="badge-tag" id="prof-avatar-mode-badge">🎨 Karakter 3D</span>
         </div>
-        <h3 style="font-size:1.55rem;margin:.15rem 0" id="prof-name-display">Andi Pratama</h3>
+        <h3 style="font-size:1.55rem;margin:.15rem 0" id="prof-name-display">Nama Pengguna</h3>
         <p style="font-size:.88rem;color:#4a5566;margin-bottom:.85rem" id="prof-bio-display">Fokus Belajar: Fundamental &amp; Dividen Investing</p>
 
         <!-- Sleek EXP Progress Bar -->
@@ -3133,7 +3320,7 @@ footer{
           <!-- Live Studio Preview Box -->
           <div style="display:flex;align-items:center;gap:1.1rem;padding:1rem;background:#f6f8fa;border:1px solid #d5dae2;border-radius:16px;margin-bottom:1rem">
             <div class="avatar-lg" id="prof-studio-avatar-ring" style="width:82px;height:82px">
-              <div class="avatar-lg-inner" id="profile-avatar-studio-preview">AP</div>
+              <div class="avatar-lg-inner" id="profile-avatar-studio-preview">👤</div>
             </div>
             <div>
               <strong style="font-size:1rem;display:block" id="prof-studio-avatar-title">Pratinjau Avatar Langsung</strong>
@@ -3187,13 +3374,13 @@ footer{
           <div style="display:grid;gap:.85rem">
             <div>
               <label for="prof-input-name" style="font-size:.8rem;font-weight:700;color:#122042;display:block;margin-bottom:.3rem">Nama Lengkap (Tercetak Resmi di Sertifikat)</label>
-              <input type="text" id="prof-input-name" class="search-input" style="width:100%" value="Andi Pratama">
-              <input type="hidden" id="profile-name-input" value="Andi Pratama">
+              <input type="text" id="prof-input-name" class="search-input" style="width:100%" value="">
+              <input type="hidden" id="profile-name-input" value="">
             </div>
 
             <div>
               <label for="prof-input-email" style="font-size:.8rem;font-weight:700;color:#122042;display:block;margin-bottom:.3rem">Alamat Email Terdaftar</label>
-              <input type="email" id="prof-input-email" class="search-input" style="width:100%" value="andi.pratama@ihsglab.id">
+              <input type="email" id="prof-input-email" class="search-input" style="width:100%" value="" readonly title="Email adalah ID akun dan tidak dapat diubah">
             </div>
 
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
@@ -3314,7 +3501,7 @@ footer{
     <span class="badge-tag lime">IHSG LAB · IDX ACADEMY CERTIFICATE</span>
     <h2 style="margin:.6rem 0">Sertifikat Kelulusan Pasar Modal</h2>
     <p style="color:var(--redup);font-size:.9rem">Diberikan sebagai apresiasi penyelesaian kurikulum edukasi saham kepada:</p>
-    <h3 style="font-size:2rem;color:var(--lime);margin:1rem 0" id="cert-student-name">Andi Pratama</h3>
+    <h3 style="font-size:2rem;color:var(--lime);margin:1rem 0" id="cert-student-name">Nama Peserta</h3>
     <p style="font-size:.9rem;color:#c2ccda;max-width:32rem;margin:0 auto 1.2rem" id="cert-status-desc">
       Telah menyelesaikan modul pembelajaran analisis pasar modal, manajemen risiko, dan simulasi perdagangan Bursa Efek Indonesia.
     </p>
@@ -3362,15 +3549,15 @@ footer{
 
       <div class="auth-field">
         <label for="reg-name">Nama Lengkap (Tercetak di Sertifikat)</label>
-        <input type="text" id="reg-name" class="auth-input" placeholder="Contoh: Andi Pratama" value="Andi Pratama">
+        <input type="text" id="reg-name" class="auth-input" placeholder="Nama lengkap Anda" autocomplete="name">
       </div>
       <div class="auth-field">
         <label for="reg-email">Alamat Email Aktif</label>
-        <input type="email" id="reg-email" class="auth-input" placeholder="nama@email.com" value="andi.pratama@ihsglab.id">
+        <input type="email" id="reg-email" class="auth-input" placeholder="nama@email.com" autocomplete="email">
       </div>
       <div class="auth-field">
         <label for="reg-password">Kata Sandi (Minimal 6 Karakter)</label>
-        <input type="password" id="reg-password" class="auth-input" placeholder="••••••••" value="ihsglab123">
+        <input type="password" id="reg-password" class="auth-input" placeholder="••••••••" autocomplete="new-password">
       </div>
       <p id="reg-error-msg" class="turun" style="font-size:.8rem;min-height:1.1rem;margin-bottom:.4rem"></p>
 
@@ -3465,13 +3652,14 @@ footer{
     <div id="auth-view-login" style="display:none">
       <div class="auth-field">
         <label for="login-email">Email Terdaftar</label>
-        <input type="email" id="login-email" class="auth-input" placeholder="nama@email.com" value="andi.pratama@ihsglab.id">
+        <input type="email" id="login-email" class="auth-input" placeholder="nama@email.com" autocomplete="username">
       </div>
       <div class="auth-field">
         <label for="login-password">Kata Sandi</label>
-        <input type="password" id="login-password" class="auth-input" placeholder="••••••••" value="ihsglab123">
+        <input type="password" id="login-password" class="auth-input" placeholder="••••••••" autocomplete="current-password">
       </div>
       <p id="login-error-msg" class="turun" style="font-size:.8rem;min-height:1.1rem;margin-bottom:.4rem"></p>
+      <p style="font-size:.74rem;color:var(--redup);margin:0 0 .6rem">Data akun tersimpan di browser perangkat ini. Jika belum punya akun di perangkat ini, pilih &quot;Buat Akun Baru&quot;.</p>
 
       <button type="button" class="btn-3d" style="width:100%" onclick="submitLoginForm()">
         MASUK KE AKUN IHSG LAB →
@@ -3575,10 +3763,10 @@ let simState = {
 
 let userState = {
   isLoggedIn: false,
-  email: 'andi.pratama@ihsglab.id',
+  email: '',
   experienceLevel: 'Pemula (Mulai dari Nol)',
   learningGoal: 'Belajar Fundamental & Dividen',
-  name: 'Andi Pratama',
+  name: '',
   bio: 'Fokus Belajar: Fundamental & Dividen Investing',
   avatarMode: '3d',
   avatarPreset: 'bull_king',
@@ -3624,26 +3812,49 @@ const ONBOARD_GOALS = [
   { id: 'Kejar Sertifikat & Games', icon: '🏆', title: 'Games & Ujian', sub: 'Raih Sertifikat IDX' }
 ];
 
-function loadFromStorage() {
-  try {
-    const u = localStorage.getItem('ihsglab_user_v3');
-    if (u) Object.assign(userState, JSON.parse(u));
-    if (typeof userState.isLoggedIn !== 'boolean') userState.isLoggedIn = false;
-    if (!Array.isArray(userState.completedUnits)) userState.completedUnits = [];
-    if (!userState.passedCerts) userState.passedCerts = {};
-    if (typeof userState.hearts !== 'number') userState.hearts = 5;
-    if (typeof userState.streakDays !== 'number') userState.streakDays = 5;
-    const s = localStorage.getItem('ihsglab_sim_v3');
-    if (s) Object.assign(simState, JSON.parse(s));
-    if (!simState.fixedSeed) { if (simState.cash === INITIAL_CASH && simState.history.length === 2) simState.cash -= 13520000; simState.fixedSeed = true; }
-  } catch (e) {}
+/* ===== AKUN LOKAL: tersimpan di browser perangkat ini (tanpa server) ===== */
+const ACC_KEY='ihsglab_accounts_v4', SES_KEY='ihsglab_session_v4', DEMO_ID='__demo__';
+const DEFAULT_USER=JSON.parse(JSON.stringify(userState)), DEFAULT_SIM=JSON.parse(JSON.stringify(simState));
+const jget=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}};
+const jset=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const accId=e=>String(e||'').trim().toLowerCase();
+const getAccounts=()=>jget(ACC_KEY,{});
+const startSession=id=>jset(SES_KEY,id);
+const endSession=()=>{try{localStorage.removeItem(SES_KEY)}catch(e){}};
+const newSalt=()=>Math.random().toString(36).slice(2)+Date.now().toString(36);
+function replaceObj(t,src){Object.keys(t).forEach(k=>delete t[k]);Object.assign(t,JSON.parse(JSON.stringify(src)))}
+async function hashPw(pw,salt){
+  const s=salt+'|'+pw;
+  try{if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}}catch(e){}
+  let h1=0xdeadbeef,h2=0x41c6ce57;
+  for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677)}
+  h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);
+  h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);
+  return 'f'+(4294967296*(2097151&h2)+(h1>>>0)).toString(16);
 }
-
-function saveToStorage() {
-  try {
-    localStorage.setItem('ihsglab_user_v3', JSON.stringify(userState));
-    localStorage.setItem('ihsglab_sim_v3', JSON.stringify(simState));
-  } catch (e) {}
+function applyGuest(){replaceObj(userState,DEFAULT_USER);replaceObj(simState,DEFAULT_SIM);userState.isLoggedIn=false}
+function loadAccount(id,name,email){
+  replaceObj(userState,DEFAULT_USER);replaceObj(simState,DEFAULT_SIM);
+  Object.assign(userState,jget('ihsglab_u_v4:'+id,{}));Object.assign(simState,jget('ihsglab_s_v4:'+id,{}));
+  userState.isLoggedIn=true;
+  if(!userState.name)userState.name=name;
+  if(email)userState.email=email;
+}
+function loadFromStorage(){
+  const id=jget(SES_KEY,null),acc=getAccounts();
+  if(id===DEMO_ID)loadAccount(DEMO_ID,'Pengguna Demo','');
+  else if(id&&acc[id])loadAccount(id,'',acc[id].email);
+  else{endSession();applyGuest()}
+}
+function saveToStorage(){
+  const id=jget(SES_KEY,null);
+  if(!id||!userState.isLoggedIn)return;
+  jset('ihsglab_u_v4:'+id,userState);jset('ihsglab_s_v4:'+id,simState);
+}
+function clearAuthForms(){['reg-name','reg-email','reg-password','login-email','login-password'].forEach(i=>{const e=$('#'+i);if(e)e.value=''})}
+function refreshUserViews(){
+  [renderHomeNews,renderNewsTab,renderLearnCatalog,renderSimTerminal,renderGamificationHeader,renderDuoPathHub,renderCertExamsCatalog,renderProfileTab].forEach(f=>{try{f()}catch(e){}});
+  updateHeaderUser();
 }
 
 function showToast(msg) {
@@ -3747,8 +3958,12 @@ function goToRegisterStep2() {
     if ($('#reg-error-msg')) $('#reg-error-msg').textContent = '⚠️ Mohon masukkan alamat email yang valid.';
     return;
   }
-  if (pass.length < 4) {
-    if ($('#reg-error-msg')) $('#reg-error-msg').textContent = '⚠️ Kata sandi minimal terdiri dari 4–6 karakter.';
+  if (pass.length < 6) {
+    if ($('#reg-error-msg')) $('#reg-error-msg').textContent = '⚠️ Kata sandi minimal 6 karakter.';
+    return;
+  }
+  if (getAccounts()[accId(email)]) {
+    if ($('#reg-error-msg')) $('#reg-error-msg').textContent = '⚠️ Email ini sudah terdaftar di perangkat ini. Silakan pilih "Masuk Akun".';
     return;
   }
   if ($('#reg-error-msg')) $('#reg-error-msg').textContent = '';
@@ -3853,10 +4068,20 @@ function pickOnboardGoal(id) {
   renderOnboardingChoices();
 }
 
-function completeRegistration() {
+async function completeRegistration() {
   stopAvatarCamera();
-  const name = ($('#reg-name')?.value || 'Andi Pratama').trim();
-  const email = ($('#reg-email')?.value || 'andi.pratama@ihsglab.id').trim();
+  const name = ($('#reg-name')?.value || '').trim();
+  const email = ($('#reg-email')?.value || '').trim();
+  const pass = $('#reg-password')?.value || '';
+  const id = accId(email), accs = getAccounts();
+  const bad = m => { backToRegisterStep1(); if ($('#reg-error-msg')) $('#reg-error-msg').textContent = '⚠️ ' + m; };
+  if (name.length < 2 || !email.includes('@') || pass.length < 6) return bad('Lengkapi nama, email, dan kata sandi (minimal 6 karakter).');
+  if (accs[id]) return bad('Email ini sudah terdaftar di perangkat ini. Silakan pilih "Masuk Akun".');
+  const salt = newSalt();
+  accs[id] = { email, salt, hash: await hashPw(pass, salt), createdAt: Date.now() };
+  jset(ACC_KEY, accs);
+  replaceObj(userState, DEFAULT_USER); replaceObj(simState, DEFAULT_SIM);
+  startSession(id);
   userState.isLoggedIn = true;
   userState.name = name;
   userState.email = email;
@@ -3879,7 +4104,8 @@ function completeRegistration() {
   if ($('#prof-input-bio')) $('#prof-input-bio').value = userState.bio;
 
   saveToStorage();
-  updateHeaderUser();
+  clearAuthForms();
+  refreshUserViews();
   closeAuthModal();
   showToast(`🎉 Selamat datang, ${userState.name}! +50 EXP Bonus & Saldo RDN Rp100 Juta aktif.`);
 
@@ -3892,59 +4118,49 @@ function completeRegistration() {
   }
 }
 
-function submitLoginForm() {
-  stopAvatarCamera();
-  const email = ($('#login-email')?.value || '').trim();
-  const pass = ($('#login-password')?.value || '').trim();
-  if (!email || !email.includes('@')) {
-    if ($('#login-error-msg')) $('#login-error-msg').textContent = '⚠️ Masukkan alamat email yang valid.';
-    return;
-  }
-  if (pass.length < 4) {
-    if ($('#login-error-msg')) $('#login-error-msg').textContent = '⚠️ Kata sandi tidak valid.';
-    return;
-  }
-  userState.isLoggedIn = true;
-  userState.email = email;
-  saveToStorage();
-  updateHeaderUser();
+function afterAuth(msg) {
+  clearAuthForms();
+  refreshUserViews();
   closeAuthModal();
-  showToast(`👋 Selamat datang kembali, ${userState.name}!`);
-
+  showToast(msg);
   const cb = pendingAuthCallback;
   pendingAuthCallback = null;
-  if (typeof cb === 'function') {
-    cb();
-  } else {
-    switchTab(pendingRedirectTab || 'belajar');
-  }
+  if (typeof cb === 'function') cb(); else switchTab(pendingRedirectTab || 'belajar');
+}
+
+async function submitLoginForm() {
+  stopAvatarCamera();
+  const email = ($('#login-email')?.value || '').trim();
+  const pass = $('#login-password')?.value || '';
+  const id = accId(email);
+  const fail = m => { if ($('#login-error-msg')) $('#login-error-msg').textContent = '\u26a0\ufe0f ' + m; };
+  if (!email.includes('@')) return fail('Masukkan alamat email yang valid.');
+  if (!pass) return fail('Masukkan kata sandi.');
+  const acc = getAccounts()[id];
+  if (!acc) return fail('Akun belum terdaftar di perangkat ini. Pilih "Buat Akun Baru" terlebih dahulu.');
+  if (await hashPw(pass, acc.salt) !== acc.hash) return fail('Email atau kata sandi salah.');
+  startSession(id);
+  loadAccount(id, '', acc.email);
+  afterAuth(`\U0001F44B Selamat datang kembali, ${userState.name}!`);
 }
 
 function quickDemoAuth(label = 'Akun Demo') {
   stopAvatarCamera();
-  userState.isLoggedIn = true;
-  if (!userState.name) userState.name = 'Andi Pratama';
+  startSession(DEMO_ID);
+  loadAccount(DEMO_ID, 'Pengguna Demo', '');
   saveToStorage();
-  updateHeaderUser();
-  closeAuthModal();
-  showToast(`⚡ Masuk cepat (${label}) berhasil! Semua fitur terbuka.`);
-
-  const cb = pendingAuthCallback;
-  pendingAuthCallback = null;
-  if (typeof cb === 'function') {
-    cb();
-  } else {
-    switchTab(pendingRedirectTab || 'belajar');
-  }
+  afterAuth(`\u26a1 Masuk cepat (${label}) berhasil! Semua fitur terbuka.`);
 }
 
 function logoutUser() {
   stopAvatarCamera();
-  userState.isLoggedIn = false;
   saveToStorage();
-  updateHeaderUser();
+  endSession();
+  applyGuest();
+  clearAuthForms();
+  refreshUserViews();
   switchTab('beranda');
-  showToast('🔒 Anda telah keluar dari akun. Buat akun atau masuk kembali untuk akses fitur member.');
+  showToast('\U0001F512 Anda telah keluar dari akun. Buat akun atau masuk kembali untuk akses fitur member.');
 }
 
 /* =========================================================================
@@ -7032,14 +7248,17 @@ function toggleModuleChapterComplete(modId) {
   renderProfileTab();
 }
 
-function updateAccountPassword() {
-  const val = ($('#sec-pass')?.value || '').trim();
-  if (val.length < 4) {
-    showToast('⚠️ Masukkan kata sandi baru minimal 4 karakter.');
-    return;
-  }
+async function updateAccountPassword() {
+  const val = $('#sec-pass')?.value || '';
+  if (val.length < 6) { showToast('\u26a0\ufe0f Kata sandi baru minimal 6 karakter.'); return; }
+  const id = jget(SES_KEY, null), accs = getAccounts();
+  if (!id || !accs[id]) { showToast('\u2139\ufe0f Akun demo tidak memiliki kata sandi. Buat akun baru untuk memakai fitur ini.'); return; }
+  const salt = newSalt();
+  accs[id].salt = salt;
+  accs[id].hash = await hashPw(val, salt);
+  jset(ACC_KEY, accs);
   $('#sec-pass').value = '';
-  showToast('🔒 Kata sandi akun berhasil diperbarui!');
+  showToast('\U0001F512 Kata sandi akun berhasil diperbarui!');
 }
 
 function renderProfileTab() {
@@ -7050,7 +7269,7 @@ function renderProfileTab() {
   if ($('#profile-level-badge')) $('#profile-level-badge').textContent = userState.experienceLevel || 'Investor Aktif';
   if ($('#prof-name-display')) $('#prof-name-display').textContent = userState.name;
   if ($('#prof-bio-display')) $('#prof-bio-display').textContent = userState.bio;
-  if ($('#prof-account-meta')) $('#prof-account-meta').textContent = `${userState.email || 'andi.pratama@ihsglab.id'} · ${userState.experienceLevel || 'Pemula'} · RDN Virtual Rp100 Juta Aktif`;
+  if ($('#prof-account-meta')) $('#prof-account-meta').textContent = `${userState.email || 'Akun Demo'} · ${userState.experienceLevel || 'Pemula'} · RDN Virtual Rp100 Juta Aktif`;
 
   if ($('#prof-avatar-ring')) $('#prof-avatar-ring').style.background = frameObj.grad;
   if ($('#prof-studio-avatar-ring')) $('#prof-studio-avatar-ring').style.background = frameObj.grad;
@@ -7088,7 +7307,7 @@ function renderProfileTab() {
   // Sync Form Inputs
   if ($('#prof-input-name')) $('#prof-input-name').value = userState.name;
   if ($('#profile-name-input')) $('#profile-name-input').value = userState.name;
-  if ($('#prof-input-email')) $('#prof-input-email').value = userState.email || 'andi.pratama@ihsglab.id';
+  if ($('#prof-input-email')) $('#prof-input-email').value = userState.email || 'Akun Demo';
   if ($('#prof-input-bio')) $('#prof-input-bio').value = userState.bio;
   if ($('#profile-tier-select') && userState.experienceLevel) $('#profile-tier-select').value = userState.experienceLevel;
   if ($('#profile-goal-select') && userState.learningGoal) $('#profile-goal-select').value = userState.learningGoal;
@@ -7260,8 +7479,7 @@ function handleAvatarUpload(ev, context = 'profile') {
 }
 
 function saveProfileIdentity() {
-  userState.name = ($('#prof-input-name')?.value || 'Andi Pratama').trim();
-  userState.email = ($('#prof-input-email')?.value || userState.email || 'andi.pratama@ihsglab.id').trim();
+  userState.name = ($('#prof-input-name')?.value || userState.name || '').trim();
   if ($('#profile-tier-select')) userState.experienceLevel = $('#profile-tier-select').value;
   if ($('#profile-goal-select')) userState.learningGoal = $('#profile-goal-select').value;
   userState.bio = ($('#prof-input-bio')?.value || '').trim();
